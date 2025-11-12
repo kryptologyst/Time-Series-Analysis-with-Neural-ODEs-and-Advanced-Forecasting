@@ -1,0 +1,68 @@
+# Configuration file for Time Series Analysis Project
+# Neural ODEs and Advanced Forecasting Methods
+
+# Data generation settings
+data:
+  seed: 42
+  n_points: 1000
+  noise_level: 0.1
+  trend_strength: 0.5
+  seasonality_period: 50
+  anomaly_probability: 0.05
+
+# Model settings
+models:
+  neural_ode:
+    hidden_size: 64
+    num_layers: 3
+    learning_rate: 0.01
+    epochs: 500
+    batch_size: 32
+    
+  arima:
+    order: [2, 1, 2]
+    seasonal_order: [1, 1, 1, 12]
+    
+  prophet:
+    yearly_seasonality: true
+    weekly_seasonality: true
+    daily_seasonality: false
+    
+  lstm:
+    hidden_size: 50
+    num_layers: 2
+    dropout: 0.2
+    learning_rate: 0.001
+    epochs: 100
+    
+  transformer:
+    d_model: 64
+    nhead: 4
+    num_layers: 2
+    dropout: 0.1
+    learning_rate: 0.001
+    epochs: 50
+
+# Anomaly detection
+anomaly_detection:
+  isolation_forest:
+    contamination: 0.1
+    random_state: 42
+    
+  autoencoder:
+    encoding_dim: 16
+    learning_rate: 0.001
+    epochs: 100
+
+# Visualization
+visualization:
+  figure_size: [12, 8]
+  dpi: 100
+  style: seaborn-v0_8
+  color_palette: Set2
+
+# Logging
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: logs/time_series_analysis.log
